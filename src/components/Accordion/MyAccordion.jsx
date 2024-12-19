@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
 function MyAccordion({questions,answer}) {
   const[show,setShow] = useState(false);
@@ -8,9 +8,12 @@ function MyAccordion({questions,answer}) {
     <>
       <div className='main-heading'>
           <h3>{questions}</h3>
-          <p onClick={()=>setShow(!show)}> 
-            <FontAwesomeIcon icon={show ? faAngleUp : faAngleDown} />
-          </p>
+          <p
+          onClick={() => setShow(!show)}
+          className={`icon ${show ? 'rotate' : ''}`} 
+        >
+          <FontAwesomeIcon icon={faAngleUp} />
+        </p>
       </div>
       {show && <p className='answers'>{answer}</p>}
       
