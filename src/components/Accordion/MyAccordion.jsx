@@ -6,7 +6,7 @@ function MyAccordion({questions,answer}) {
   const[show,setShow] = useState(false);
   return (
     <>
-      <div className='main-heading'>
+       <div className={`main-heading ${show ? 'open' : ''}`}>
           <h3>{questions}</h3>
           <p
           onClick={() => setShow(!show)}
@@ -15,7 +15,9 @@ function MyAccordion({questions,answer}) {
           <FontAwesomeIcon icon={faAngleDown} />
         </p>
       </div>
-      {show && <p className='answers'>{answer}</p>}
+      <div className={`answers ${show ? 'show' : ''}`}>
+        <p>{answer}</p>
+      </div>
       
     </>
   )
